@@ -4,22 +4,47 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="8" />
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:hardwareAccelerated="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".CloudAppStudioAndroidActivity"
-            android:label="@string/app_name" >
+            android:name="com.cloudappstudio.activities.LoginActivity"
+            android:label="@string/app_name" 
+            android:theme="@style/Theme.Sherlock.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name="com.cloudappstudio.activities.WebApplicationsActivity"
+            android:theme="@style/ActionBarStyleBlue">
+        </activity>
+        
+        <activity
+            android:name="com.cloudappstudio.activities.FormsActivity"
+            android:label="FormsActivity" 
+            android:theme="@style/ActionBarStyleDarkOrange">
+        </activity>
+        
+        <activity
+            android:name="com.cloudappstudio.activities.FormEntriesActivity"
+            android:label="FormsActivity" 
+            android:theme="@style/ActionBarStyleDarkGrey">
+        </activity>
+        
+        <activity
+            android:name="com.cloudappstudio.activities.EntryDetailsActivity"
+            android:label="FormsActivity" 
+            android:theme="@style/ActionBarStyleDarkGrey">
+        </activity>
+        
         <activity
             android:name=".AppActivity"
             android:label="AppActivity" >
