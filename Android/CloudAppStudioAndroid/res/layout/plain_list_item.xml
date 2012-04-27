@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:background="@drawable/listview_style" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+    <TextView android:layout_height="wrap_content" 
+        android:gravity="left" 
+        android:textStyle="normal" 
+        android:text="Name" 
+        android:textColor="#000" 
+        android:layout_width="fill_parent" 
+        android:textSize="16dip" 
+        android:id="@+id/plain_list_name" 
+        android:layout_alignParentTop="true" 
+        android:layout_centerHorizontal="true" 
+        android:paddingLeft="8dip"
+        android:paddingRight="10dip"
+        android:paddingTop="15dip"
+        android:paddingBottom="15dip">
+        
+    </TextView>
+
+</RelativeLayout>
