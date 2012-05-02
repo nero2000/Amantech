@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.actionbarsherlock.app;
 
 import android.app.Activity;

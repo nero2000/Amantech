@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.actionbarsherlock;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
