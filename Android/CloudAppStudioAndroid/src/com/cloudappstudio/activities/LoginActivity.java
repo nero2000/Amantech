@@ -8,7 +8,6 @@ import android.widget.Button;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.cloudappstudio.android.R;
-import com.cloudappstudio.utility.CloudWebAppParser;
 
 /**
  * An activity that lets the user log in to their google account

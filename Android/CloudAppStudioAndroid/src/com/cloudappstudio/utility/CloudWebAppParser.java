@@ -11,7 +11,7 @@ import com.cloudappstudio.data.CloudWebApp;
 
 /**
  * CloudWebAppParser - Parses web application information into CloudWebApp objects
- * @author Jesper Lindberg
+ * @author mrjanek <Jesper Lindberg>
  */
 public class CloudWebAppParser {
 	private static final String apiUrl = "https://cloudappstudio360.appspot.com/api/json/v2/apps.json";
