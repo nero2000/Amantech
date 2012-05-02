@@ -46,17 +46,14 @@ public class PlainListAdapter extends BaseAdapter
         return convertView;
 	}
 
-    @Override
     public int getCount() {
         return mItems.size();
     }
 
-    @Override
 	public String getItem(int position) {
     	return mItems.get(position);
 	}
 
-	@Override
     public long getItemId(int position) {
         return position;
     }

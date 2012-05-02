@@ -48,17 +48,17 @@ public class ColumnValueListAdapter extends BaseAdapter
         return convertView;
 	}
 
-    @Override
+
     public int getCount() {
         return mItems.size();
     }
 
-    @Override
+
 	public ColumnValue getItem(int position) {
     	return mItems.get(position);
 	}
 
-	@Override
+
     public long getItemId(int position) {
         return position;
     }

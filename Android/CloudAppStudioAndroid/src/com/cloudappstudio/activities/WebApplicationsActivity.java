@@ -38,7 +38,6 @@ public class WebApplicationsActivity extends SherlockActivity {
 		listView.setAdapter(new PlainListAdapter(getApplicationContext(), sampleData));
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent intent = new Intent(getApplicationContext(), FormsActivity.class);
 				startActivity(intent);
@@ -53,7 +52,7 @@ public class WebApplicationsActivity extends SherlockActivity {
         
         MenuItem item = menu.findItem(R.id.menu_add);
         item.setOnMenuItemClickListener(new OnMenuItemClickListener() {			
-			@Override
+
 			public boolean onMenuItemClick(MenuItem item) {
 				return true;
 			}

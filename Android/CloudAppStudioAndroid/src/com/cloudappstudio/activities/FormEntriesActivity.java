@@ -37,7 +37,6 @@ public class FormEntriesActivity extends SherlockActivity {
 		listView.setAdapter(new PlainListAdapter(getApplicationContext(), sampleData));
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent intent = new Intent(getApplicationContext(), EntryDetailsActivity.class);
 				startActivity(intent);

@@ -23,7 +23,6 @@ public class LoginActivity extends SherlockActivity {
 		
 		logInButton.setOnClickListener(new OnClickListener() {
 			
-			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
 				startActivity(intent);
