@@ -1,0 +1,58 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item android:state_selected="true" >
+        <shape>
+        	<gradient
+                android:startColor="#ededed"
+                android:endColor="#ffffff"
+                android:angle="270" />
+        </shape>
+    </item>
+	<item android:state_pressed="true" >
+        <shape>
+            <gradient
+                android:startColor="#c8c8c8"
+                android:endColor="#dedede"
+                android:angle="270" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+        	<gradient
+                android:startColor="#ffffff"
+                android:endColor="#dedede"
+                android:angle="270" />
+        </shape>
+    </item>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item android:state_selected="true" >
+        <shape>
+        	<gradient
+                android:startColor="#ededed"
+                android:endColor="#ffffff"
+                android:angle="270" />
+        </shape>
+    </item>
+	<item android:state_pressed="true" >
+        <shape>
+            <gradient
+                android:startColor="#c8c8c8"
+                android:endColor="#dedede"
+                android:angle="270" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+        	<gradient
+                android:startColor="#ffffff"
+                android:endColor="#dedede"
+                android:angle="270" />
+        </shape>
+    </item>
+>>>>>>> 4ef028d16d9e920fb2a920d6f8c6622e33682540
+</selector>     
