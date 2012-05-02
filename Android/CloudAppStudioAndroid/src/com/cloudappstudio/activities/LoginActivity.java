@@ -1,6 +1,5 @@
 package com.cloudappstudio.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -8,6 +7,7 @@ import android.widget.Button;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.cloudappstudio.android.R;
+import com.cloudappstudio.utility.CloudWebAppParser;
 
 /**
  * An activity that lets the user log in to their google account
@@ -24,8 +24,9 @@ public class LoginActivity extends SherlockActivity {
 		logInButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
-				startActivity(intent);
+				//Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
+				//startActivity(intent);
+				CloudWebAppParser parser = new CloudWebAppParser();
 			}
 		});
 	}
