@@ -24,5 +24,5 @@ public class CloudView {
 	public void setViewName(String viewName) {
 		this.viewName = viewName;
 	}
-	
+
 }
