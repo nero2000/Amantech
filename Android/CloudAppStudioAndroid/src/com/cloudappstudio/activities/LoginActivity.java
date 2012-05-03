@@ -25,9 +25,8 @@ public class LoginActivity extends SherlockActivity {
 		logInButton.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				//Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
-				//startActivity(intent);
-				CloudViewEntriesParser parser = new CloudViewEntriesParser();
+				Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
