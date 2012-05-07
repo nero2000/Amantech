@@ -823,19 +823,17 @@ containing a value of this type.
         public static final int abs__title=0x7f04001b;
         public static final int abs__titleDivider=0x7f04001c;
         public static final int abs__up=0x7f04000b;
+        public static final int accountListView=0x7f04002e;
         public static final int column_textView=0x7f040028;
         public static final int disableHome=0x7f040009;
-        public static final int editText1=0x7f04002e;
-        public static final int editText2=0x7f04002f;
         public static final int entry_details_listView=0x7f04002b;
         public static final int form_entries_listView=0x7f04002c;
         public static final int forms_listView=0x7f04002d;
         public static final int homeAsUp=0x7f040006;
         public static final int listMode=0x7f040002;
-        public static final int logIn_button=0x7f040030;
         public static final int menu_add=0x7f040027;
         public static final int normal=0x7f040001;
-        public static final int plain_list_name=0x7f040031;
+        public static final int plain_list_name=0x7f04002f;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
@@ -843,7 +841,7 @@ containing a value of this type.
         public static final int textView1=0x7f04002a;
         public static final int useLogo=0x7f040004;
         public static final int value_textView=0x7f040029;
-        public static final int webApplications_listView=0x7f040032;
+        public static final int webApplications_listView=0x7f040030;
         public static final int wrap_content=0x7f040000;
     }
     public static final class integer {
