@@ -62,7 +62,7 @@ import android.util.Log;
 							GAEConnector _gaeConnector = new GAEConnector(null, "http://logincookietest.appspot.com");
 						
 							if (!_gaeConnector.Authenticate(CloudLoginTow.this)) {
-							Log.d("debug","***AUTHENTICATION ERROR***");
+							Log.d("CLOUD","***AUTHENTICATION ERROR***");
 							}
 							
 							if (_gaeConnector.isAuthenticated()) 
@@ -71,7 +71,7 @@ import android.util.Log;
 									int httpStatusCode = _gaeConnector.GETContent("/test.jsp", true, true);
 									if (httpStatusCode == 200) {
 										String content = _gaeConnector.getLastContent();
-										Log.d("debug",content);
+										Log.d("CLOUD",content);
 									}
 								}catch(Exception e){
 									
