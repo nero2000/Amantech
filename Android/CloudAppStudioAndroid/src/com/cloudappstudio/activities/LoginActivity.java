@@ -19,6 +19,7 @@ import android.widget.ListView;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.cloudappstudio.android.R;
 //import com.cloudappstudio.utility.CloudViewEntryParser;
+import com.cloudappstudio.utility.CloudeOAuth;
 
 /**
  * An activity that lets the user log in to their google account
@@ -26,6 +27,7 @@ import com.cloudappstudio.android.R;
  */
 
 public class LoginActivity extends SherlockActivity {
+	
 	private AccountManager am;
 	private Activity       activity;
 	
@@ -45,10 +47,27 @@ public class LoginActivity extends SherlockActivity {
         
         accountList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-			public void onItemClick(AdapterView<?> parent, View view, int pos,
+			public void onItemClick(AdapterView<?> parent, View view, final int pos,
 					long id) {
 				 Log.d("test","cliking");
-				 Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
+				 
+				 new Thread(new Runnable()
+					{
+					public void run()
+					{
+						CloudeOAuth ca = new CloudeOAuth();
+						try{
+						String token = ca.getToken(accounts[pos], LoginActivity.this);
+						String content = ca.getContent("https://cloudappstudio360.appspot.com/api/json/v2/apps.json", token);
+						Log.d("debug",content);
+						}catch(Exception e){
+							
+							Log.d("debug","No go!");
+						}
+					}}).start();
+					
+				 
+				Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
 				startActivity(intent);
 				
 			}
@@ -57,3 +76,4 @@ public class LoginActivity extends SherlockActivity {
 	}
 
 }
+
