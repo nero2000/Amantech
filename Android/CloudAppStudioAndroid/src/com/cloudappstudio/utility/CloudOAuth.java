@@ -20,13 +20,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
-public class CloudeOAuth {
+public class CloudOAuth {
 	
 	public String getToken(Account account, Context context) throws OperationCanceledException, AuthenticatorException, IOException{
 		AccountManager mgr = AccountManager.get(context);
 		String authToken = null;
-        AccountManagerFuture<Bundle> accountManagerFuture = mgr.getAuthToken(account, "oauth2:https://www.googleapis.com/auth/userinfo.email", null,
-                        (Activity) context, null, null);
+        AccountManagerFuture<Bundle> accountManagerFuture = mgr.getAuthToken(account, "oauth2:https://www.googleapis.com/auth/userinfo.email", null, (Activity) context, null, null);
         
         Bundle authTokenBundle = accountManagerFuture.getResult();
         authToken = authTokenBundle.get(AccountManager.KEY_AUTHTOKEN).toString();
@@ -52,7 +51,7 @@ public class CloudeOAuth {
 	}
 	
 	
-	 private String ReadTextFromHttpResponse(HttpResponse httpResp) throws IllegalStateException, IOException {
+	private String ReadTextFromHttpResponse(HttpResponse httpResp) throws IllegalStateException, IOException {
          BufferedReader reader = new BufferedReader(new InputStreamReader(httpResp.getEntity().getContent()));
          StringBuffer sb = new StringBuffer();
          String line;
@@ -61,5 +60,5 @@ public class CloudeOAuth {
          }
          reader.close();
          return sb.toString();
- }
+	}
 }

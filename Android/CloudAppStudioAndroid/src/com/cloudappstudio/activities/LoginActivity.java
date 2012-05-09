@@ -5,8 +5,11 @@ import java.util.List;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,11 +17,8 @@ import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.cloudappstudio.android.R;
-<<<<<<< HEAD
-//import com.cloudappstudio.utility.CloudViewEntryParser;
-import com.cloudappstudio.utility.CloudeOAuth;
-=======
->>>>>>> 37b657ba056d9a41aba60dd62a1d0e1216afe244
+import com.cloudappstudio.utility.CloudConstants;
+import com.cloudappstudio.utility.CloudOAuth;
 
 /**
  * An activity that lets the user log in to their google account
@@ -26,69 +26,85 @@ import com.cloudappstudio.utility.CloudeOAuth;
  */
 
 public class LoginActivity extends SherlockActivity {
-<<<<<<< HEAD
-	
-	private AccountManager am;
-	private Activity       activity;
-=======
->>>>>>> 37b657ba056d9a41aba60dd62a1d0e1216afe244
+	private Account[] accounts;
+	private ProgressDialog progressDialog;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.cloudappstudio.android.R.layout.login_view);	
-		
-		final List<String> accountNames = getGoogleAccounts();		
+
+		accounts = getGoogleAccounts();		
         ListView accountList = (ListView) findViewById(R.id.accountListView);
-        accountList.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, accountNames));
+        accountList.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, accountsToString(accounts)));
         
         accountList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-<<<<<<< HEAD
-
-			public void onItemClick(AdapterView<?> parent, View view, final int pos,
-					long id) {
-				 Log.d("test","cliking");
-				 
-				 new Thread(new Runnable()
-					{
-					public void run()
-					{
-						CloudeOAuth ca = new CloudeOAuth();
-						try{
-						String token = ca.getToken(accounts[pos], LoginActivity.this);
-						String content = ca.getContent("https://cloudappstudio360.appspot.com/api/json/v2/apps.json", token);
-						Log.d("debug",content);
-						}catch(Exception e){
-							
-							Log.d("debug","No go!");
-						}
-					}}).start();
-					
-				 
-				Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
-				startActivity(intent);
-				
-=======
-			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-				 Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
-				 startActivity(intent);
->>>>>>> 37b657ba056d9a41aba60dd62a1d0e1216afe244
+			public void onItemClick(AdapterView<?> parent, View view, final int pos,long id) {
+				new LoginAuthTask().execute(pos);
 			}
-		});
-        
+        });
 	}
-
-	private List<String> getGoogleAccounts() {
-		AccountManager accountManager = AccountManager.get(getApplicationContext());
-		
-        final Account[] accounts = accountManager.getAccountsByType("com.google");
-        final List<String> accountNames = new ArrayList<String>();
-        
+	
+    /**
+     * Generates a string list of available account names
+     * @param accounts the accounts data
+     * @return a list of account names
+     */
+	private List<String> accountsToString(Account[] accounts) {
+        final List<String> accountNames = new ArrayList<String>();       
         for (Account account : accounts)
             accountNames.add(account.name);
         		
 		return accountNames;
 	}
+	
+	/**
+	 * Generates an array of the available accounts on the device
+	 * @return the accounts array
+	 */
+	private Account[] getGoogleAccounts() {
+		AccountManager accountManager = AccountManager.get(getApplicationContext());
+		return accountManager.getAccountsByType("com.google");
+	}
+	
+	/**
+	 * Authenticates the user in a thread
+	 * @author mrjanek
+	 */
+	public class LoginAuthTask extends AsyncTask<Integer, Integer, Integer> {
+		
+		@Override
+		protected void onPreExecute() {
+			progressDialog = ProgressDialog.show(LoginActivity.this, "Authenticating", "Authenticating user information..");
+		}
+		
+		@Override
+		protected Integer doInBackground(Integer... params) {
+			int index = params[0];
+			CloudOAuth ca = new CloudOAuth();
+			
+			try {
+				String token = ca.getToken(accounts[index], LoginActivity.this);
+				String content = ca.getContent(CloudConstants.CAS360_APPS_JSON, token);
+				Log.d("CLOUD", content);
+			}
+			
+			catch(Exception e) {
+				Log.d("CLOUD","No go!");
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
 
+		@Override
+		protected void onPostExecute(Integer result) {
+			progressDialog.dismiss();
+			Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
+			startActivity(intent); 
+		}
+	}
 }
+
+
 
