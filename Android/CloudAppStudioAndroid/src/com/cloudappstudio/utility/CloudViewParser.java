@@ -23,8 +23,7 @@ public class CloudViewParser {
 	private CloudAuthId id;
 
 	public CloudViewParser(CloudAuthId id) {
-		CloudOAuth auth = new CloudOAuth(id);
-		this.id = auth.getCloudAuthId();
+		this.id = id;
 	}
 	
 	public List<CloudView> parseFromString(String json) throws JSONException {

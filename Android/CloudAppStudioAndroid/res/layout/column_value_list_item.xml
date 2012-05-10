@@ -12,7 +12,7 @@
         android:paddingLeft="8dip"
         android:paddingRight="10dip"
         android:text="COLUMN"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/value_textView"

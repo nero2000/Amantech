@@ -1,53 +1,66 @@
 package com.cloudappstudio.data;
 
-public class CloudViewEntry {
-	private String[] columns;
-	private String[] values;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class CloudViewEntry implements Parcelable{
+	private List<ColumnValue> columnValues = new ArrayList<ColumnValue>();
 	
-	public CloudViewEntry(String[] columns, String[] values) {
-		this.columns = columns;
-		this.values = values;
-	}
-
-	public String[] getColumns() {
-		return columns;
-	}
-
-	public void setColumns(String[] columns) {
-		this.columns = columns;
-	}
-
-	public String[] getValues() {
-		return values;
-	}
-
-	public void setValues(String[] values) {
-		this.values = values;
+	public CloudViewEntry(Parcel parcel) {
+		readFromParcel(parcel);
 	}
 	
-	public String getValue(int index) {
-		if (index < values.length)
-			return values[index];
-		else
-			return null;
+	public CloudViewEntry(List<ColumnValue> values) {
+		this.columnValues = values;
 	}
-	
-	public String getValueByColumnName(String name) {
-		for (String column : columns) {
-			if (column.equals(name))
-				return column;
+
+	public ColumnValue getValue(int index) {
+		return columnValues.get(index);
+	}
+
+	public String getValueByColumnName(String column) {
+		for (ColumnValue value : columnValues) {
+			if (value.getColumn().equals(column))
+				return value.getValue();
 		}
 		return null;
 	}
 	
-	public String getTitleValue() {
-		for (int i = 0; i < columns.length; i++) {
-			if (columns[i].contains("title") || columns[i].contains("name") || columns[i].contains("titel") || columns[i].contains("Titel")) {
-				if (i < values.length)
-					return values[i];
-			}
-		}
-		return null;
+    public List<ColumnValue> getColumnValues() {
+		return columnValues;
 	}
+
+	public void setColumnValues(List<ColumnValue> columnValues) {
+		this.columnValues = columnValues;
+	}
+	
+	// Parcelable methods
+
+	@SuppressWarnings("rawtypes")
+	public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public CloudViewEntry createFromParcel(Parcel in) {
+            return new CloudViewEntry(in);
+        }
+ 
+        public CloudViewEntry[] newArray(int size) {
+            return new CloudViewEntry[size];
+        }
+    };
+    
+	public int describeContents() {
+		return 0;
+	}
+
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeTypedList(columnValues);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void readFromParcel(Parcel in) {
+        in.readTypedList(columnValues, ColumnValue.CREATOR);
+    }
 	
 }

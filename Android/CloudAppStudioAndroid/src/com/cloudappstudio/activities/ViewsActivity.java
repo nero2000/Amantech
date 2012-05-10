@@ -53,8 +53,13 @@ public class ViewsActivity extends SherlockActivity {
 		listView.setAdapter(listAdapter);
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long ident) {
 				Intent intent = new Intent(getApplicationContext(), ViewEntriesActivity.class);
+				
+				intent.putExtra("id", id);
+				intent.putExtra("app", app);
+				intent.putExtra("view", views.get(position));
+				
 				startActivity(intent);
 			}
 		});

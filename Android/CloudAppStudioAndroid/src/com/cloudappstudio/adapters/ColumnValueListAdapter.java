@@ -42,7 +42,7 @@ public class ColumnValueListAdapter extends BaseAdapter
         else
             holder = (ViewHolderColumnValue)convertView.getTag();
 
-        holder.column.setText(mItems.get(position).getColumn());
+        holder.column.setText(mItems.get(position).getColumn().toUpperCase());
         holder.value.setText(mItems.get(position).getValue());
         
         return convertView;
