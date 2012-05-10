@@ -26,7 +26,12 @@ public class CloudViewEntry implements Parcelable{
 			if (value.getColumn().equals(column))
 				return value.getValue();
 		}
-		return null;
+		
+		String value = "";
+		if (columnValues.size() > 0)
+			value = columnValues.get(0).getValue();
+		
+		return value;
 	}
 	
     public List<ColumnValue> getColumnValues() {
