@@ -9,15 +9,15 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.cloudappstudio.android.R;
-import com.cloudappstudio.utility.CloudConstants;
+import com.cloudappstudio.data.CloudAuthId;
 import com.cloudappstudio.utility.CloudOAuth;
 
 /**
@@ -71,7 +71,7 @@ public class LoginActivity extends SherlockActivity {
 	 * Authenticates the user in a thread
 	 * @author mrjanek
 	 */
-	public class LoginAuthTask extends AsyncTask<Integer, Integer, Integer> {
+	public class LoginAuthTask extends AsyncTask<Integer, Integer, CloudAuthId> {
 		
 		@Override
 		protected void onPreExecute() {
@@ -79,29 +79,35 @@ public class LoginActivity extends SherlockActivity {
 		}
 		
 		@Override
-		protected Integer doInBackground(Integer... params) {
+		protected CloudAuthId doInBackground(Integer... params) {
 			int index = params[0];
-			CloudOAuth ca = new CloudOAuth();
-			
+			CloudAuthId id = null;
+					
 			try {
-				String token = ca.getToken(accounts[index], LoginActivity.this);
-				String content = ca.getContent(CloudConstants.CAS360_APPS_JSON, token);
-				Log.d("CLOUD", content);
-			}
+				CloudOAuth ca = new CloudOAuth(accounts[index], LoginActivity.this);
+				id = ca.getCloudAuthId();
+			} 
 			
 			catch(Exception e) {
-				Log.d("CLOUD","No go!");
-				e.printStackTrace();
+				id = null;
 			}
 			
-			return null;
+			return id;
 		}
 
 		@Override
-		protected void onPostExecute(Integer result) {
+		protected void onPostExecute(CloudAuthId id) {
 			progressDialog.dismiss();
-			Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
-			startActivity(intent); 
+			
+			if (id != null) {
+				Intent intent = new Intent(getApplicationContext(), WebApplicationsActivity.class);
+				intent.putExtra("id", id);
+				startActivity(intent);
+			}
+			
+			else {
+				Toast.makeText(getApplicationContext(), "Failed to authenticate user information", Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 }

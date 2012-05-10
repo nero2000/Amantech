@@ -1,12 +1,18 @@
 package com.cloudappstudio.utility;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
+
+import com.cloudappstudio.data.CloudAuthId;
 import com.cloudappstudio.data.CloudView;
 
 /**
@@ -14,11 +20,14 @@ import com.cloudappstudio.data.CloudView;
  * @author mrjanek <Jesper Lindberg>
  */
 public class CloudViewParser {
-	
-	private static final String apiUrl = "https://cloudappstudio360.appspot.com/api/json/v2/views.json?appName=";
-	private static final String sampleJson = "[{appId:'4c3bdce5-55bd-41b1-9f63-308a9d6a2174',themeId:null,lastModified:null,themeEnabled:false,status:null,sortOrder:-1653304839,viewDataURL:'https://cloudappstudio360.appspot.com:443/api/json/v2/viewdata?appName=zzxeNYK0&viewName=eOTQx3t9',formName:null,type:null,propertiesAsJson:null,id:'db69d854-2be2-49fd-b80e-0db6e095928a',title:'Tillgängliga bostäder',createdBy:null,decorationMode:'alt2',ACLId:null,workflowId:null,name:'eOTQx3t9',lastModifiedBy:null,createdDate:1334081524217}]";
+	private CloudAuthId id;
 
-	public List<CloudView> parseFromCloudApp(String json) throws JSONException {
+	public CloudViewParser(CloudAuthId id) {
+		CloudOAuth auth = new CloudOAuth(id);
+		this.id = auth.getCloudAuthId();
+	}
+	
+	public List<CloudView> parseFromString(String json) throws JSONException {
 		JSONArray outlineArray = new JSONArray(json);
 		List<CloudView> views = new ArrayList<CloudView>();
 		
@@ -34,7 +43,14 @@ public class CloudViewParser {
 		return views;
 	}
 	
-	public List<CloudView> parseFromCloud(String appName) {
-		throw new UnsupportedOperationException("Not yet implemented. Need some HTTP download code first.");
+	public List<CloudView> parseFromCloud(String appName) throws IllegalStateException, IOException, JSONException {
+		CloudOAuth auth = new CloudOAuth(id);
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("?appName=", appName);
+		
+		String content = auth.getContent(CloudConstants.CAS360_VIEWS_JSON, params);
+		Log.i("CLOUD", "Content:" + content);
+		return parseFromString(content);
 	}
 }

@@ -18,7 +18,7 @@ import com.cloudappstudio.android.R;
  * Shows a list of entries for a specific form
  * @author mrjanek <Jesper Lindberg>
  */
-public class FormEntriesActivity extends SherlockActivity {
+public class ViewEntriesActivity extends SherlockActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

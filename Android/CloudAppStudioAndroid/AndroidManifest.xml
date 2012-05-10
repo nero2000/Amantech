@@ -31,13 +31,13 @@
         </activity>
         
         <activity
-            android:name="com.cloudappstudio.activities.FormsActivity"
+            android:name="com.cloudappstudio.activities.ViewsActivity"
             android:label="FormsActivity" 
             android:theme="@style/ActionBarStyleDarkOrange">
         </activity>
         
         <activity
-            android:name="com.cloudappstudio.activities.FormEntriesActivity"
+            android:name="com.cloudappstudio.activities.ViewEntriesActivity"
             android:label="FormsActivity" 
             android:theme="@style/ActionBarStyleDarkGrey">
         </activity>
