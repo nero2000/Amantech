@@ -23,7 +23,7 @@ public class ViewEntriesActivity extends SherlockActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(com.cloudappstudio.android.R.layout.form_entries_view);
+		setContentView(com.cloudappstudio.android.R.layout.view_entries_view);
 		getSupportActionBar().setTitle("FormName");
 		
 		List<String> sampleData = new ArrayList<String>();

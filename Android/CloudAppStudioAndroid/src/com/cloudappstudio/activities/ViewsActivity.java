@@ -38,7 +38,7 @@ public class ViewsActivity extends SherlockActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(com.cloudappstudio.android.R.layout.forms_view);
+		setContentView(com.cloudappstudio.android.R.layout.views_view);
 		
 		Bundle bundle = getIntent().getExtras();
 		id = bundle.getParcelable("id");
