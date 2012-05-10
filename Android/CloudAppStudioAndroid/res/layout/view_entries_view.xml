@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dip"
+        android:paddingBottom="12dip"
+        android:paddingLeft="17dip"
+        android:text="Entries available for form" 
+        android:textColor="#000"
+        android:background="#E2E2E2"
+        />
+
+    <ListView
+        android:id="@+id/form_entries_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:padding="10dip"
+        android:divider="#D6D6D6"
+        android:dividerHeight="1dip">
+    </ListView>
+
+</LinearLayout>

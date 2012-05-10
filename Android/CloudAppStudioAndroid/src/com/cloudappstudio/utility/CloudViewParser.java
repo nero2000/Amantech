@@ -47,7 +47,7 @@ public class CloudViewParser {
 		CloudOAuth auth = new CloudOAuth(id);
 		
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("?appName=", appName);
+		params.put("&appName=", appName);
 		
 		String content = auth.getContent(CloudConstants.CAS360_VIEWS_JSON, params);
 		Log.i("CLOUD", "Content:" + content);

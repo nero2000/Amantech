@@ -3,9 +3,7 @@ package com.cloudappstudio.utility;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -62,7 +60,6 @@ public class CloudOAuth {
         
 	}
 	
-	@SuppressWarnings("rawtypes")
 	public String getContent(String apiUrl, Map<String, String> params) throws IllegalStateException, IOException{	
 		// HttpClient (without following redirects!)
         DefaultHttpClient httpClient = new DefaultHttpClient();
