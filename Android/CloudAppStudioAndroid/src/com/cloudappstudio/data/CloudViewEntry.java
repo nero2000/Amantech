@@ -21,6 +21,15 @@ public class CloudViewEntry implements Parcelable{
 		return columnValues.get(index);
 	}
 
+	public List<ColumnValue> getImageUrls() {
+		List<ColumnValue> imageUrls = new ArrayList<ColumnValue>();
+		for (ColumnValue value : columnValues) {
+			if (value.IsImageUrl())
+				imageUrls.add(value);
+		}
+		return imageUrls;
+	}
+	
 	public String getValueByColumnName(String column) {
 		for (ColumnValue value : columnValues) {
 			if (value.getColumn().equals(column))

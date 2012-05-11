@@ -1,5 +1,8 @@
 package com.cloudappstudio.data;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -34,6 +37,18 @@ public class ColumnValue implements Parcelable {
 
 	public void setValue(String value) {
 		this.mValue = value;
+	}
+	
+	public boolean IsImageUrl() {
+        try {
+        	String regex = "(https?:\\/\\/.*\\.(?:png|jpg|gif|jpeg|bmp))";
+            Pattern patt = Pattern.compile(regex);
+            Matcher matcher = patt.matcher(mValue);
+            return matcher.matches();
+        } 
+        catch (RuntimeException e) {
+        	return false;
+        }  
 	}
 	
 	// Parcelable methods
