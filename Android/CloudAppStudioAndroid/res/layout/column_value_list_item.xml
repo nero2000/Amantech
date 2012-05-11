@@ -27,6 +27,8 @@
         android:text="Name"
         android:textColor="#000"
         android:textSize="16dip"
-        android:textStyle="normal" />
+        android:textStyle="normal" 
+        android:autoLink="web"
+        android:linksClickable="true"/>
 
 </RelativeLayout>

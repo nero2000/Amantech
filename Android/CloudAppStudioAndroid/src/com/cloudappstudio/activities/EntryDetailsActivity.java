@@ -26,6 +26,6 @@ public class EntryDetailsActivity extends SherlockActivity {
 		getSupportActionBar().setTitle("Entry details");
 		
 		ListView listView = (ListView) findViewById(R.id.entry_details_listView);
-		listView.setAdapter(new ColumnValueListAdapter(getApplicationContext(), viewEntry.getColumnValues()));
+		listView.setAdapter(new ColumnValueListAdapter(this, viewEntry.getColumnValues()));
 	}
 }
