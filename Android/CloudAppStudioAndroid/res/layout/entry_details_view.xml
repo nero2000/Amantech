@@ -12,7 +12,7 @@
         android:paddingTop="12dip"
         android:paddingBottom="12dip"
         android:paddingLeft="17dip"
-        android:text="Entries available for view" 
+        android:text="Entry information" 
         android:textColor="#000"
         android:background="#E2E2E2"
         />

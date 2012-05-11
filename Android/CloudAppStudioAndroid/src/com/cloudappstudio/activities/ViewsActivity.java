@@ -69,7 +69,7 @@ public class ViewsActivity extends SherlockActivity {
 		
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(ViewsActivity.this, "Downloading", "Grabbing a list of available views..");
+			progressDialog = ProgressDialog.show(ViewsActivity.this, "Downloading", "Fetching a list of available views..");
 		}
 		
 		@Override
@@ -105,7 +105,7 @@ public class ViewsActivity extends SherlockActivity {
 			}
 			
 			else {
-				Toast.makeText(getApplicationContext(), "Failed to download application information", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Failed to download view information", Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

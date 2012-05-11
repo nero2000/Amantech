@@ -86,7 +86,7 @@ public class WebApplicationsActivity extends SherlockActivity {
 		
 		@Override
 		protected void onPreExecute() {
-			progressDialog = ProgressDialog.show(WebApplicationsActivity.this, "Downloading", "Grabbing a list of available applications..");
+			progressDialog = ProgressDialog.show(WebApplicationsActivity.this, "Downloading", "Fetching a list of available applications..");
 		}
 		
 		@Override

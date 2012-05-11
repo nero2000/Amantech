@@ -23,7 +23,7 @@ public class EntryDetailsActivity extends SherlockActivity {
 		Bundle bundle = getIntent().getExtras();
 		viewEntry = bundle.getParcelable("viewEntry");
 		
-		getSupportActionBar().setTitle("EntryDetails");
+		getSupportActionBar().setTitle("Entry details");
 		
 		ListView listView = (ListView) findViewById(R.id.entry_details_listView);
 		listView.setAdapter(new ColumnValueListAdapter(getApplicationContext(), viewEntry.getColumnValues()));
