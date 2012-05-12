@@ -5,17 +5,18 @@
     android:orientation="vertical"
     android:background="#FFF" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="12dip"
-        android:paddingBottom="12dip"
-        android:paddingLeft="17dip"
-        android:text="Entries available for view" 
-        android:textColor="#000"
-        android:background="#E2E2E2"
-        />
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/scrollView_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <ListView
         android:id="@+id/entry_details_listView"

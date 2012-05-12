@@ -3,6 +3,7 @@ package com.cloudappstudio.adapters;
 import java.util.List;
 
 import android.content.Context;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class ColumnValueListAdapter extends BaseAdapter
             holder = new ViewHolderColumnValue();
             holder.column = (TextView)convertView.findViewById(R.id.column_textView);
             holder.value = (TextView)convertView.findViewById(R.id.value_textView);
-            
+            holder.value.setMovementMethod(LinkMovementMethod.getInstance());
             convertView.setTag(holder);
         } 
         

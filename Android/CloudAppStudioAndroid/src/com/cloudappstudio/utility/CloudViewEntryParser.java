@@ -10,6 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.text.Html;
+
 import com.cloudappstudio.data.CloudAuthId;
 import com.cloudappstudio.data.CloudViewEntry;
 import com.cloudappstudio.data.ColumnValue;
@@ -53,8 +55,9 @@ public class CloudViewEntryParser {
 				}
 				
 				for (int k = 0; k < values.length; k++) {
-					if (columns.length <= values.length)
-						viewEntries.add(new ColumnValue(columns[k], values[k]));
+					if (columns.length <= values.length) {
+						viewEntries.add(new ColumnValue(columns[k], Html.fromHtml(values[k]).toString()));
+					}
 				}
 				
 				views.add(new CloudViewEntry(viewEntries));
