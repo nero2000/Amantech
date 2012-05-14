@@ -24,8 +24,6 @@ import com.cloudappstudio.data.CloudAuthId;
 
 public class CloudOAuth {
 	private CloudAuthId id;
-	private Account mAccount;
-	private Activity mActivity;
 	
 	public CloudOAuth(CloudAuthId id) {
 		this.id = id;
@@ -33,8 +31,6 @@ public class CloudOAuth {
 	
 	public CloudOAuth(Account account, Activity activity) throws OperationCanceledException, AuthenticatorException, IOException {
 		id = new CloudAuthId(account, getToken(activity, account));
-		mAccount = account;
-		mActivity = activity;
 	}
 	
 	private String getToken(Activity activity, Account account) throws OperationCanceledException, AuthenticatorException, IOException{
@@ -44,6 +40,7 @@ public class CloudOAuth {
 
         Bundle authTokenBundle = accountManagerFuture.getResult();
         authToken = authTokenBundle.get(AccountManager.KEY_AUTHTOKEN).toString();
+        
         //Invalidate the first token and get it again we need to do this later in the code, only if we cet 505 status code
         mgr.invalidateAuthToken(account.type, authToken);
         accountManagerFuture = mgr.getAuthToken(account, "oauth2:https://www.googleapis.com/auth/userinfo.email", null, activity, null, null);
