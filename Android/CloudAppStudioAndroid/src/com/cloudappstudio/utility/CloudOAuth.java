@@ -61,7 +61,8 @@ public class CloudOAuth {
         //https://cloudappstudio360.appspot.com/api/json/v2/apps.json?userInfoOAuth=ya29.AHES6ZT4Qh27Q8I1LK7onoQpxwNXw2Czp2Wndg8nk0TIzYc
         HttpGet httpget = new HttpGet(apiUrl + "?userInfoOAuth=" + id.getToken());
         HttpResponse response = httpClient.execute(httpget);
-        Log.d("debug", ""+response.getStatusLine().getStatusCode());  
+        Log.d("debug", ""+response.getStatusLine().getStatusCode());
+        Log.d("debug", ""+response.getStatusLine());
         return this.readTextFromHttpResponse(response);
         
 	}

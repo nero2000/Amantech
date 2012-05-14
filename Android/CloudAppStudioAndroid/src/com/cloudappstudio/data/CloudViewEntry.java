@@ -6,7 +6,7 @@ import java.util.List;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class CloudViewEntry implements Parcelable{
+public class CloudViewEntry implements Parcelable {
 	private List<ColumnValue> columnValues = new ArrayList<ColumnValue>();
 	
 	public CloudViewEntry(Parcel parcel) {

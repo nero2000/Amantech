@@ -581,17 +581,17 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
         mClosingActionMenu = false;
     }
 
-    @Override
+
     public boolean onOpenSubMenu(MenuBuilder subMenu) {
         return true;
     }
 
-    @Override
+
     public void onCloseMenu(MenuBuilder menu, boolean allMenusAreClosing) {
         checkCloseActionMenu(menu);
     }
 
-    @Override
+
     public boolean onMenuItemClick(android.view.MenuItem item) {
         if (DEBUG) Log.d(TAG, "[mNativeItemListener.onMenuItemClick] item: " + item);
 
@@ -605,7 +605,6 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
         return true; //Do not allow continuation of native handling
     }
 
-    @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         return callbackOptionsItemSelected(item);
     }
@@ -974,7 +973,6 @@ public class ActionBarSherlockCompat extends ActionBarSherlock implements MenuBu
                     // Post the panel invalidate for later; avoid application onCreateOptionsMenu
                     // being called in the middle of onCreate or similar.
                     mDecor.post(new Runnable() {
-                        @Override
                         public void run() {
                             //Invalidate if the panel menu hasn't been created before this.
                             if (!mActivity.isFinishing() && mMenu == null) {

@@ -59,14 +59,12 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         mItemLayoutRes = itemLayoutRes;
     }
 
-    @Override
     public void initForMenu(Context context, MenuBuilder menu) {
         mContext = context;
         mInflater = LayoutInflater.from(mContext);
         mMenu = menu;
     }
 
-    @Override
     public MenuView getMenuView(ViewGroup root) {
         if (mMenuView == null) {
             mMenuView = (MenuView) mSystemInflater.inflate(mMenuLayoutRes, root, false);
