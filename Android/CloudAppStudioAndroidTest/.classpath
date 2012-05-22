@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="/CloudAppStudioAndroid"/>
+	<classpathentry kind="lib" path="D:/Android/android-sdk/platforms/android-15/android.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/D:/Android/android-sdk/docs/reference"/>
+		</attributes>
+		<accessrules>
+			<accessrule kind="nonaccessible" pattern="com/android/internal/**"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/denmif/Amantech/Android/action_bar_sherlock/bin/action_bar_sherlock.jar" sourcepath="/action_bar_sherlock/src"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/denmif/Amantech/Android/CloudAppStudioAndroid/libs/flexjson-2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Android/android-sdk/tools/support/annotations.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/denmif/Amantech/Android/CloudAppStudioAndroid/libs/commons-io-2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/denmif/Amantech/Android/action_bar_sherlock/libs/android-support-v4.jar"/>
+	<classpathentry kind="lib" path="/CloudAppStudioAndroid/libs/commons-io-2.1.jar"/>
+	<classpathentry kind="lib" path="/CloudAppStudioAndroid/libs/flexjson-2.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
