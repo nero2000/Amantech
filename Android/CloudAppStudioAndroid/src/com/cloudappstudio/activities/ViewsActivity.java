@@ -36,7 +36,7 @@ public class ViewsActivity extends SherlockActivity {
 	private List<CloudView> views = new ArrayList<CloudView>();
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.cloudappstudio.android.R.layout.views_view);
 		

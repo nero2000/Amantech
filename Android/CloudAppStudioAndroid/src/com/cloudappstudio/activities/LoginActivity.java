@@ -30,7 +30,7 @@ public class LoginActivity extends SherlockActivity {
 	private ProgressDialog progressDialog;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.cloudappstudio.android.R.layout.login_view);	
 

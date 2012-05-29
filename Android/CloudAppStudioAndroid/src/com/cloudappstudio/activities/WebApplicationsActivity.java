@@ -38,7 +38,7 @@ public class WebApplicationsActivity extends SherlockActivity {
 	private WebApplicationsListAdapter listAdapter;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.cloudappstudio.android.R.layout.web_applications_view);
 		

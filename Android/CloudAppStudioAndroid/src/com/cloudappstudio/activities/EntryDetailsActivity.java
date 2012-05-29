@@ -24,7 +24,7 @@ public class EntryDetailsActivity extends SherlockActivity {
 	private LinearLayout scrollViewLayout;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(com.cloudappstudio.android.R.layout.entry_details_view);
 		scrollViewLayout = (LinearLayout) findViewById(R.id.scrollView_layout);
